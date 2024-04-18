@@ -1,0 +1,67 @@
+/**
+ * File Name: rzmystyle.css
+ *
+ * Revision History:
+ *       Romnick Zinampan, 2023-09-24 : Created
+ */
+.center{
+    text-align: center;
+}
+
+label.error{
+    color: red;
+    font-weight: bold;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.custom-style {
+    display: inline-flex;
+    text-align: left;
+}
+
+.custom-style .ui-icon {
+    margin-right: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 40%;
+}
+
+
+.update-btn,
+.delete-btn,
+.cancel-btn {
+    flex: 1;
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .button-container {
+        width: 80%;
+    }
+
+    h1{
+        font-size: 100%;
+    }
+}
+
+label.error {
+    color: #F00;
+    font-weight: bold;
+}
+
+input.error,
+select.error,
+textarea.error {
+    border: 1px solid red;
+}

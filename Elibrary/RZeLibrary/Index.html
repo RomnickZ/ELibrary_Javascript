@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RZeLibrary</title>
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <script src="js/lib/jquery.validate.js"></script>
+    <script src="js/RzFacade.js"></script>
+    <script src="js/RzGlobal.js"></script>
+    <script src="js/RzUtil.js"></script>
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/rzmystyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="rzHome" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Home</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#rzHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#rzSubscribe" data-icon="plus">Subscribe</a></li>
+                <li><a href="#rzSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#rzContact" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section data-role="content">
+        <h1>RZeLibrary</h1>
+        <p>Welcome To Romnick Zinampan's eBook Subscription App. RZeLibrary is the newer Library reading app by Romnick Zinampan. Loved by Millions of  readers worldwide.</p>
+        <p style="text-align: center"><img src="img/RZimage.png" alt=""></p>
+        <p>Please feel fre to Contact me if you have any suggestions!</p>
+    </section>
+</div>
+
+<div id="rzSubscribe" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Subscribe</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#rzHome" data-icon="home">Home</a></li>
+                <li><a href="#rzSubscribe" data-icon="plus" class="ui-btn-active ui-state-persist">Subscribe</a></li>
+                <li><a href="#rzSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#rzContact" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <h1>Subscribe eBooks</h1>
+    <section data-role="content">
+        <form id="frmSubscribe">
+            <label for="txtSubscriberName">Subscriber Name:</label>
+            <input type="text" id="txtSubscriberName" name="txtSubscriberName" data-clear-btn="true">
+
+            <label>Subscription Type:</label>
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <button type="radio" data-role="button" data-inline="true" id="btnMonthly" name="btnMonthly" class="ui-btn-active ui-state-persist">Monthly</button>
+                        <button type="radio" data-role="button" data-inline="true" id="btnAnnually" name="btnAnnually" data-theme="a">Annually</button>
+                    </div>
+                </div>
+            </div>
+
+            <label>Choose eBook:</label>
+            <div data-role="collapsibleset">
+                <div data-role="collapsible" data-expanded-icon="minus">
+                    <h3>CS-IT</h3>
+                    <label for="Cb01">Mastering Mobile App Development</label>
+                    <input type="checkbox" name="Cb01" id="Cb01">
+                    <label for="Cb02">Machine Learning of Dummies</label>
+                    <input type="checkbox" name="Cb02" id="Cb02">
+                    <label for="Cb03">Handbook of Usability Testing</label>
+                    <input type="checkbox" name="Cb03" id="Cb03">
+                </div>
+                <div data-role="collapsible" data-expanded-icon="minus">
+                    <h3>Business Management</h3>
+                    <label for="Cb11">Digital Strategies in Global Management</label>
+                    <input type="checkbox" name="Cb11" id="Cb11">
+                    <label for="Cb12">Leadership Today</label>
+                    <input type="checkbox" name="Cb12" id="Cb12">
+                    <label for="Cb13">The Manager's path</label>
+                    <input type="checkbox" name="Cb13" id="Cb13">
+                </div>
+                <div data-role="collapsible" data-expanded-icon="minus">
+                    <h3>Accounting</h3>
+                    <label for="Cb21">Mastering Mobile App Development</label>
+                    <input type="checkbox" name="Cb21" id="Cb21">
+                    <label for="Cb22">Machine Learning of Dummies</label>
+                    <input type="checkbox" name="Cb22" id="Cb22">
+                    <label for="Cb23">Handbook of Usability Testing</label>
+                    <input type="checkbox" name="Cb23" id="Cb23">
+                </div>
+            </div>
+
+
+            <label for="txtEmail">Subscriber Email:</label>
+            <input type="text" id="txtEmail" name="txtEmail">
+
+            <label for="dateOfSub">Date of Subscription:</label>
+            <input type="date" id="dateOfSub" name="dateOfSub">
+
+
+            <label for="chkAddRatings">Do you want to rate this application?</label>
+            <input type="checkbox" id="chkAddRatings" name="chkAddRatings">
+            <div id="ratingsSection" style="display: none;">
+                <label for="txtIntuitive">Intuitive UI (0-5):</label>
+                <input type="number" id="txtIntuitive" name="txtIntuitive" min="0" max="5">
+                <label for="txtResponseTime">Response Time (0-5):</label>
+                <input type="number" id="txtResponseTime" name="txtResponseTime" min="0" max="5">
+                <label for="txtOverall">Overall Rating (0-100):</label>
+                <input type="number" id="txtOverall" name="txtOverall" min="0" max="100">
+            </div>
+            <button type="submit" id="btnSave" class="btn btn-primary mb-3" data-icon="plus" data-iconpos="left" style="background-color: #3388cc; color: #fff">Submit</button>
+        </form>
+    </section>
+</div>
+
+
+
+<div id="rzSettings" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Settings</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#rzHome" data-icon="home">Home</a></li>
+                <li><a href="#rzSubscribe" data-icon="plus">Subscribe</a></li>
+                <li><a href="#rzSettings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+                <li><a href="#rzContact" data-icon="star">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>Settings</h1>
+        <form id="frmSettings">
+            <label for="txtDefaultSub">Default Subscriber Email:</label>
+            <input type="text" id="txtDefaultSub" name="txtDefaultSub" data-clear-btn="true">
+            <button type="submit" data-icon="check" data-iconpos="left" class="btn btn-primary mb-3" style="background-color: #005599; color:white">Save</button>
+        </form>
+    </section>
+</div>
+
+<div id="rzContact" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Modify Review</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#rzHome" data-icon="home">Home</a></li>
+                <li><a href="#rzSubscribe" data-icon="plus">Subscribe</a></li>
+                <li><a href="#rzSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#rzContact" data-icon="star" class="ui-btn-active ui-state-persist">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>Contact Us</h1>
+        <ul data-role="listview" class="ui-listview-inset" data-icon="plus" data-iconpos="left">
+            <li><a href="#" data-role="button" data-icon="plus" data-iconpos="left" class="custom-style">Call: (696)969-6969</a></li>
+        </ul>
+        <ul data-role="listview" class="ui-listview-inset" data-icon="plus" data-iconpos="left">
+            <li><a href="#" data-role="button" data-icon="plus" data-iconpos="left" class="custom-style">Email: Rzinampan4187@conestogac.on.ca</a></li>
+        </ul>
+        <ul data-role="listview" class="ui-listview-inset" data-icon="plus" data-iconpos="left">
+            <li><a href="#" data-role="button" data-icon="plus" data-iconpos="left" class="custom-style">Web: www.conestogac.on.ca</a></li>
+        </ul>
+    </section>
+</div>
+
+<footer data-role="footer" data-position="fixed" data-theme="a">
+    <h1>&copy; Romnick Zinampan, Conestoga 2023.</h1>
+</footer>
+</body>
+</html>
